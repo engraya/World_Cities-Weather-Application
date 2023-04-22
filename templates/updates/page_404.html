@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Weather App</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    #footer{
+      margin-bottom: 0px;
+      margin-top: 450px;
+    }
+
+    #context{
+      margin-top: 100px;
+    }
+    
+    #logo{
+        width: 100px;
+        height: 100px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-inbox"></i>email: engrahmadaya@gmail.com
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call me : +2348149087802
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'homePage' %}" class="logo me-auto"><img  id="logo"  src="{% static 'img/logo.png' %}" alt=""></a>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'homePage' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#">API</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'componentsPage' %}"">Components</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'newsPage' %}"">News</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'contactPage' %}"">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="{% url 'home' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Update</span>Page</a>
+
+    </div>
+  </header><!-- End Header -->
+
+
+<div class="row justify-content-center my-5">
+    <div id="context"  class="col-md-5">
+        <h1>Page Not Found</h1>
+        <p>Make sure you are connected to the internet or you are entering a valid city name</p>
+        <a href="{% url 'homePage' %}" class="btn btn-secondary">Go Home</a>
+    </div>
+</div>
+
+</body>
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>World Wweather App</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        Designed by <a href="#">EngrAhMADAYA</a>
+      </div>
+      <div class="social-links mt-3">
+        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      </div>
+      
+    </div>
+
+  </footer><!-- End Footer -->

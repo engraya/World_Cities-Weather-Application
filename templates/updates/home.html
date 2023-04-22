@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Weather App</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i' %}" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+  <style>
+    body{
+      background: url("/static/img/weather\ \(12\).jpg");
+    }
+
+    #result{
+      margin-top: 60px;
+    }
+
+    #sub{
+      height: 25px;
+      align-items: center;
+      align-self: center;
+      background-color:#3fbbc0;
+    }
+
+    #text{
+      padding-bottom: 10px;
+      position: absolute;
+    }
+
+    
+    #logo{
+      width: 100px;
+      height: 100px;
+    }
+    #btn{
+      margin-left: 4px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Top Bar ======= -->
+  <div id="topbar" class="d-flex align-items-center fixed-top">
+    <div class="container d-flex align-items-center justify-content-center justify-content-md-between">
+      <div class="align-items-center d-none d-md-flex">
+        <i class="bi bi-inbox"></i>email: engrahmadaya@gmail.com
+      </div>
+      <div class="d-flex align-items-center">
+        <i class="bi bi-phone"></i> Call me : +2348149087802
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+      <a href="{% url 'homePage' %}" class="logo me-auto"><img  id="logo"  src="{% static 'img/logo.png' %}" alt=""></a>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <h1 class="logo me-auto"><a href="index.html">Medicio</a></h1> -->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="{% url 'homePage' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="#">API</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'componentsPage' %}"">Components</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'newsPage' %}"">News</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'contactPage' %}"">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a href="{% url 'home' %}" class="appointment-btn scrollto"><span class="d-none d-md-inline">Update</span>Page</a>
+
+    </div>
+  </header><!-- End Header -->
+<div id="main1" class="row justify-content-center my-5">
+    <div id="result"  class="col-md-5">
+        <div id="sub" class="mt-4 p-5 bg text-white rounded mb-3">
+            <h2 id="text">Word Cities Weather Updates</h2>
+        </div>
+        <form action="." method="POST">
+          {% csrf_token %}
+          <div class="input-group">
+            <input type="text" required class="form-control" name="city" placeholder="Enter City Name.......">
+            <div class="input-group-append">
+              <button id="btn" class="btn btn-success" type="submit">
+                Go to city
+              </button>
+            </div>
+          </div>
+        </form>
+        <hr>
+        <div class="card">
+            <div class="card-body">
+                <img src="http://openweathermap.org/img/w/{{ city_weather_update.icon }}.png" alt="">
+                <div class="card-text float-end">{{ city_weather_update.time }}</div>
+                <div class="card-text"><h3>{{ city_weather_update.city }} {{ city_weather_update.country_code }}</h3></div>
+                <div class="card-text"><h6>{{ city_weather_update.temperature }}</h6></div>
+                <div class="card-text"><h6>{{ city_weather_update.description | title }}</h6></div>
+                <div class="card-text"><h6>{{ city_weather_update.wind }}</h6></div>
+                <div class="card-text"><h6>{{ city_weather_update.humidity }}</h6></div>
+                <div class="card-text"><h6>{{ city_weather_update.latitude }}</h6></div>
+                <div class="card-text"><h6>{{ city_weather_update.longitude }}</h6></div>
+            </div>
+        </div>
+    </div>
+</div>
